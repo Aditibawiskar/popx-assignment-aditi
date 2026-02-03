@@ -41,7 +41,11 @@ This repository contains the solution for the PopX Frontend Intern/Fresher assig
     Navigate to `http://localhost:5173/`
 
 ## 📂 Folder Structure
-src/ ├── components/ # Reusable UI components (Container.jsx) ├── pages/ # Main Application Screens (Landing, Login, Signup, Profile) ├── styles/ # Global form styles (form.css) ├── App.jsx # Main Routing Setup └── main.jsx # Entry Point
+src/ ├── components/ │ └── Container.jsx # Reusable UI wrapper ├── pages/ │ ├── LandingPage.jsx # Welcome Screen │ ├── LoginPage.jsx # Signin Screen │ ├── SignupPage.jsx # Create Account Screen │ └── ProfilePage.jsx # Account Settings Screen ├── styles/ │ └── form.css # Global Styles & Fonts ├── App.jsx # Main Routing Setup └── main.jsx # Entry Point
+
+
+---
+**Submitted by:** Aditi Bawiskar
 
 
 ---
