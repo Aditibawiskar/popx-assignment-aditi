@@ -76,7 +76,7 @@ const SignupPage = () => {
           font-size: 16px;
           font-weight: bold;
           cursor: pointer;
-          margin-top: 110px; /* Pushes to bottom */
+          margin-top: 140px; /* Pushes to bottom */
         }
         
         .signup-btn:hover {
