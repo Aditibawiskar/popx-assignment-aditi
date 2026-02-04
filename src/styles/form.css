@@ -2,13 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
 
 body {
-  font-family: 'Rubik'; /* Applies the correct font to the whole app */
+  font-family: 'Rubik';
+  /* Applies the correct font to the whole app */
   margin: 0;
   font-weight: regular;
   padding: 0;
   font-size: 18px;
   color: #1D2226;
- 
+
   background-color: #eef0f2;
 }
 
@@ -17,10 +18,12 @@ body {
   padding: 30px 25px;
   display: flex;
   flex-direction: column;
+  top: 0px;
+  left: 0px;
   width: 375px;
   height: 812px;
   box-sizing: border-box;
-  
+
 }
 
 /* Typography */
@@ -43,11 +46,13 @@ p.description {
 /* --- 3. BUTTONS (For Landing & Forms) --- */
 .btn {
   width: 100%;
-  height: 50px; /* Fixed height for consistency */
+  height: 50px;
+  /* Fixed height for consistency */
   border: none;
   border-radius: 6px;
   font-size: 16px;
-  font-weight: 600; /* Slightly bolder text */
+  font-weight: 600;
+  /* Slightly bolder text */
   cursor: pointer;
   margin-top: 10px;
   display: flex;
@@ -71,11 +76,13 @@ p.description {
 
 /* Light Purple Button (Login) */
 .btn-secondary {
-  background-color: #CEBAFF; /* The specific light purple from the design */
-  color: #1D2226; /* Dark text */
+  background-color: #CEBAFF;
+ 
+  color: #1D2226;
+  /* Dark text */
   font-size: 16px;
   font-weight: medium;
- 
+
 }
 
 /* Grey Button (Login Page) */
@@ -106,7 +113,8 @@ label {
 }
 
 label span {
-  color: #CF2222; /* Red asterisk */
+  color: #CF2222;
+  /* Red asterisk */
   margin-left: 3px;
 }
 
@@ -166,21 +174,24 @@ input[type="radio"] {
 
 /* --- 6. RESPONSIVE CONTAINER LAYOUT --- */
 
-/* The Background (Desktop View) */
+
 .main-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #eef0f2; /* Grey background for desktop */
+  background-color: #eef0f2;
+  /* Grey background for desktop */
 }
 
 /* The App Card (Desktop View) */
 .app-card {
-          width: 375px;
-height: 812px;
+  top: 0px;
+  left: 0px;
+  width: 375px;
+  height: 812px;
   background-color: #ffffff;
-  box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   overflow-y: auto;
   position: relative;
@@ -189,17 +200,21 @@ height: 812px;
 }
 
 /* --- MOBILE RESPONSIVENESS --- */
-/* When screen is smaller than 480px (Actual Phones), fill the screen */
+
 @media (max-width: 480px) {
   .main-wrapper {
     background-color: #ffffff;
-    align-items: flex-start; /* Start from top */
+    align-items: flex-start;
+    /* Start from top */
   }
 
   .app-card {
-   width: 375px;
-height: 812px;
-    box-shadow: none; /* No shadow on real mobile */
+    top: 0px;
+    left: 0px;
+    width: 375px;
+    height: 812px;
+    box-shadow: none;
+    /* No shadow on real mobile */
     border-radius: 0;
   }
 }

@@ -8,7 +8,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // Check if both fields have text
+
   const isFormFilled = email.length > 0 && password.length > 0;
 
   const handleLogin = (e) => {
@@ -49,14 +49,11 @@ const LoginPage = () => {
             />
           </div>
 
-          {/* DYNAMIC BUTTON LOGIC:
-             If 'isFormFilled' is true -> use 'btn-primary' (Purple)
-             If 'isFormFilled' is false -> use 'btn-grey' (Grey)
-          */}
+       
           <button 
             className={`btn ${isFormFilled ? 'btn-primary' : 'btn-grey'}`} 
             type="submit"
-            disabled={!isFormFilled} // Optional: Prevents clicking if empty
+            disabled={!isFormFilled} 
           >
             Login
           </button>
