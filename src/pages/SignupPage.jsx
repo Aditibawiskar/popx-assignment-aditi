@@ -11,28 +11,29 @@ const SignupPage = () => {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    localStorage.setItem('userName', formData.name);
-    localStorage.setItem('userEmail', formData.email);
+    // Save data
+    localStorage.setItem('userName', formData.name || 'Marry Doe');
+    localStorage.setItem('userEmail', formData.email || 'Marry@Gmail.Com');
+    
+    // Redirect
     navigate('/profile');
   };
 
   return (
     <Container>
-      {/* INTERNAL STYLES FOR EXACT MATCH */}
       <style>{`
         .signup-content {
           display: flex;
           flex-direction: column;
           padding: 30px 20px;
+          height: 100%; /* Ensures it fills the card */
         }
 
-        /* The Container for the Input */
         .custom-field {
           position: relative;
-          margin-bottom: 24px; /* Space between boxes */
+          margin-bottom: 24px;
         }
 
-        /* The Input Box */
         .custom-field input {
           width: 100%;
           height: 48px;
@@ -43,29 +44,26 @@ const SignupPage = () => {
           font-size: 14px;
           color: #1D2226;
           font-weight: 500;
-          background-color: transparent; /* Important for the look */
+          background-color: transparent;
         }
 
-        /* The Label - positioned to "Cut" the border */
         .custom-field label {
           position: absolute;
-          top: -9px; /* Pulls it up to sit on the line */
+          top: -9px;
           left: 10px;
-          background-color: #ffffff; /* White background hides the border line behind it */
-          padding: 0 4px; /* Space around text so line doesn't touch it */
+          background-color: #ffffff;
+          padding: 0 4px;
           font-size: 13px;
-          color: #6C25FF; /* The specific Purple */
+          color: #6C25FF;
           font-weight: 500;
           pointer-events: none;
         }
 
-        /* The Red Asterisk */
         .custom-field label span {
           color: #DD2C00;
           margin-left: 2px;
         }
 
-        /* The Create Account Button */
         .signup-btn {
           background-color: #6C25FF;
           color: white;
@@ -76,12 +74,12 @@ const SignupPage = () => {
           font-size: 16px;
           font-weight: bold;
           cursor: pointer;
-          margin-top: 140px; /* Pushes to bottom */
+          /* Removed margin-top here because we handle it with flexbox below */
         }
         
         .signup-btn:hover {
-        margin-top: 50px;
           background-color: #5818db;
+          /* REMOVED margin-top change - this fixes the flickering! */
         }
       `}</style>
 
@@ -90,39 +88,34 @@ const SignupPage = () => {
           Create your <br /> PopX account
         </h1>
 
-        <form onSubmit={handleSignup} style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+        {/* Added height: 100% to ensure form fills space */}
+        <form onSubmit={handleSignup} style={{ display: 'flex', flexDirection: 'column', flex: 1, height: '100%' }}>
           
-          {/* Full Name */}
           <div className="custom-field">
             <label>Full Name<span>*</span></label>
-            <input type="text" name="name" defaultValue="Marry Doe" required onChange={handleChange} />
+            <input type="text" name="name" placeholder="Marry Doe" required onChange={handleChange} />
           </div>
 
-          {/* Phone */}
           <div className="custom-field">
             <label>Phone number<span>*</span></label>
-            <input type="tel" name="phone" defaultValue="Marry Doe" required onChange={handleChange} />
+            <input type="tel" name="phone" placeholder="Marry Doe" required onChange={handleChange} />
           </div>
 
-          {/* Email */}
           <div className="custom-field">
             <label>Email address<span>*</span></label>
-            <input type="email" name="email" defaultValue="Marry Doe" required onChange={handleChange} />
+            <input type="email" name="email" placeholder="Marry Doe" required onChange={handleChange} />
           </div>
 
-          {/* Password */}
           <div className="custom-field">
             <label>Password<span>*</span></label>
-            <input type="password" name="password" defaultValue="Marry Doe" required onChange={handleChange} />
+            <input type="password" name="password" placeholder="Marry Doe" required onChange={handleChange} />
           </div>
 
-          {/* Company */}
           <div className="custom-field">
             <label>Company name</label>
-            <input type="text" name="company" defaultValue="Marry Doe" onChange={handleChange} />
+            <input type="text" name="company" placeholder="Marry Doe" onChange={handleChange} />
           </div>
 
-          {/* Radio Buttons */}
           <div style={{ marginTop: '5px' }}>
             <label style={{ fontSize: '15px', color: '#1D2226', fontWeight: '500', display:'block', marginBottom:'12px' }}>
               Are you an Agency?<span>*</span>
@@ -139,7 +132,7 @@ const SignupPage = () => {
             </div>
           </div>
 
-          {/* Submit Button */}
+          {/* This wrapper pushes the button to the bottom stably */}
           <div style={{ marginTop: 'auto', paddingTop: '30px' }}>
             <button className="signup-btn" type="submit">
               Create Account

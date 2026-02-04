@@ -6,12 +6,18 @@ import '../styles/form.css';
 const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  // Check if both fields have text
+  const isFormFilled = email.length > 0 && password.length > 0;
 
   const handleLogin = (e) => {
     e.preventDefault();
-    localStorage.setItem('userName', 'Marry Doe'); 
-    localStorage.setItem('userEmail', email);
-    navigate('/profile');
+    if (isFormFilled) {
+        localStorage.setItem('userName', 'Marry Doe'); 
+        localStorage.setItem('userEmail', email);
+        navigate('/profile');
+    }
   };
 
   return (
@@ -25,15 +31,33 @@ const LoginPage = () => {
         <form onSubmit={handleLogin}>
           <div className="form-group">
             <label>Email Address</label>
-            <input type="email" placeholder="Enter email address" onChange={(e) => setEmail(e.target.value)} required />
+            <input 
+              type="email" 
+              placeholder="Enter email address" 
+              onChange={(e) => setEmail(e.target.value)} 
+              required 
+            />
           </div>
 
           <div className="form-group">
             <label>Password</label>
-            <input type="password" placeholder="Enter password" required />
+            <input 
+              type="password" 
+              placeholder="Enter password" 
+              onChange={(e) => setPassword(e.target.value)}
+              required 
+            />
           </div>
 
-          <button className="btn btn-grey" type="submit">
+          {/* DYNAMIC BUTTON LOGIC:
+             If 'isFormFilled' is true -> use 'btn-primary' (Purple)
+             If 'isFormFilled' is false -> use 'btn-grey' (Grey)
+          */}
+          <button 
+            className={`btn ${isFormFilled ? 'btn-primary' : 'btn-grey'}`} 
+            type="submit"
+            disabled={!isFormFilled} // Optional: Prevents clicking if empty
+          >
             Login
           </button>
         </form>
